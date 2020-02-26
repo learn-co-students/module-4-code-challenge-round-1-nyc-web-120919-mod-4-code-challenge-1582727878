@@ -31,9 +31,15 @@ class App extends Component {
   handleFormSubmit = (e) => {
     e.preventDefault()
     const newBook = {title: this.state.title, author: this.state.author, img: this.state.img}
-    console.log(newBook)
     this.setState({
       bookList: [...this.state.bookList, newBook]
+    })
+    fetch('http://localhost:3005/books', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(newBook)
     })
   }
 
