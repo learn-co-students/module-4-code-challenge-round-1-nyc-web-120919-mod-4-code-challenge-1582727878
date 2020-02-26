@@ -36,13 +36,22 @@ class App extends Component {
   }
 
   newBook = (bookInfo) => {
-    const newId = this.state.books.length + 1
-    const newBook = {
-      ...bookInfo, id: newId
-    }
-    this.setState((prevState) => {
+    fetch('http://localhost:3005/books', {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'},
+      body: JSON.stringify(bookInfo)
+    })
+    .then((response) => {
+      return response.json();
+    })
+    .then((newBook) => {
+      this.setState((prevState) => {
       return {books: [...prevState.books, newBook]}
     })
+    })
+
+    
   }
 
   render() {
