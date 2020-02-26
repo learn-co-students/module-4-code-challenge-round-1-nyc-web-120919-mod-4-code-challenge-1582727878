@@ -9,7 +9,7 @@ class BookList extends Component {
         <h1>Book List</h1>
         <Form />
         <ul>{this.props.books.map(book => {
-          return <Book book={book}/>})}</ul>
+          return <Book key={book.id} handleBook={this.props.handleBook} book={book}/>})}</ul>
       </div>
     );
   }

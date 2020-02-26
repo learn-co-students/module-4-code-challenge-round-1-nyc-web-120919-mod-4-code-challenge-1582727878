@@ -7,8 +7,7 @@ import Bookshelf from "./containers/Bookshelf";
 class App extends Component {
 
   state = {
-    books: [],
-    bookShelf: []
+    books: []
   }
 
   componentDidMount() {
@@ -17,17 +16,30 @@ class App extends Component {
       return response.json();
     })
     .then((books) => {
-      this.setState(() => {
-        return {books: books}
+      this.setState((prevState) => {
+        return {books: [...prevState.books, ...books]}
       })
     })
   }
 
+  handleBook = (book) => {
+    const newBooks = [...this.state.books].map(bookItem => {
+      if (book.id === bookItem.id) {
+        bookItem.onShelf = !bookItem.onShelf
+      }
+      return bookItem
+    })
+    this.setState(() => {
+      return {books: [...this.state.books, newBooks]}
+    })
+  }
+
   render() {
+    const booksForShelf = this.state.books.filter((book) => book.onShelf)
     return (
       <div className="book-container">
-        <BookList books={this.state.books} />
-        <Bookshelf />
+        <BookList handleBook={this.handleBook} books={this.state.books} />
+        <Bookshelf handleBook={this.handleBook} shelfBooks={booksForShelf} />
       </div>
     );
   }
