@@ -7,9 +7,9 @@ const Book = props => {
   }
 
   return (
-    <div onClick={handleClick}>
+    <div >
       <h2>{props.book.title}</h2>
-      <img src={props.book.img}></img>
+      <img onClick={handleClick} src={props.book.img}></img>
     </div>
   );
 };

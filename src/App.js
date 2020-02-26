@@ -1,8 +1,9 @@
-import React, { Component } from "react";
+import React, { Component} from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import BookList from "./containers/BookList";
 import Bookshelf from "./containers/Bookshelf";
+import Form from "./components/Form";
 
 class App extends Component {
 
@@ -34,13 +35,23 @@ class App extends Component {
     })
   }
 
+  newBook = (bookInfo) => {
+    const newId = this.state.books.length + 1
+    const newBook = {
+      ...bookInfo, id: newId
+    }
+    this.setState((prevState) => {
+      return {books: [...prevState.books, newBook]}
+    })
+  }
+
   render() {
     const booksForShelf = this.state.books.filter((book) => book.onShelf)
     return (
-      <div className="book-container">
-        <BookList handleBook={this.handleBook} books={this.state.books} />
-        <Bookshelf handleBook={this.handleBook} shelfBooks={booksForShelf} />
-      </div>
+        <div className="book-container">
+          <BookList handleBook={this.handleBook} books={this.state.books} newBook={this.newBook} />
+          <Bookshelf handleBook={this.handleBook} shelfBooks={booksForShelf} />
+        </div>
     );
   }
 }
