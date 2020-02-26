@@ -45,9 +45,11 @@ class App extends Component {
 
   handleBookListClick = (book) => {
     const bookObj = {title: book.title, id: book.id, author: book.author, img: book.img}
+    const foundBook = this.state.bookShelf.find(bookItem => bookItem.id === book.id)
+    if (!foundBook) {
     this.setState({
       bookShelf: [...this.state.bookShelf, bookObj]
-    })
+    })}
   } 
 
   handleBookShelfClick = (book) => {
