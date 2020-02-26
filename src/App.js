@@ -39,6 +39,26 @@ class App extends Component {
     this.setState({ bookShelf: remainingBooks })
   }
 
+  removeBook = (id) => {
+    fetch(`http://localhost:3005/books/${id}`, {
+      method: 'DELETE'
+    })
+    const remainingBooks = this.state.books.filter(listBook => {
+      if (!(id === listBook.id)){
+        return listBook
+      }
+    })
+    let remainingShelfBooks = []
+    if (this.state.bookShelf){
+      remainingShelfBooks = this.state.bookShelf.filter(shelfBook => {
+        if (!(id === shelfBook.id)){
+          return shelfBook
+        }
+      })
+    }
+    this.setState({ books: remainingBooks, bookShelf: remainingShelfBooks })
+  }
+
   addNewBook = (book) => {
     console.log(book)
     fetch(`http://localhost:3005/books`, {
@@ -53,9 +73,10 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state.books)
     return (
       <div className="book-container">
-        <BookList books={this.state.books} addToShelf={this.addToShelf} addNewBook={this.addNewBook}/>
+        <BookList books={this.state.books} addToShelf={this.addToShelf} addNewBook={this.addNewBook} removeBook={this.removeBook}/>
         <Bookshelf books={this.state.bookShelf} removeFromShelf={this.removeFromShelf}/>
       </div>
     );

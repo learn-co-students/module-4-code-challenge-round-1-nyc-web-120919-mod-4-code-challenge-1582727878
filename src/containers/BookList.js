@@ -10,7 +10,7 @@ class BookList extends Component {
         <h1>Book List</h1>
         <Form addNewBook={this.props.addNewBook}/>
         <ul>{this.props.books.map(book => {
-          return <Book key={book.id} book={book} clickHandler={this.props.addToShelf}/>
+          return <Book key={book.id} book={book} clickHandler={this.props.addToShelf} isShelf={false} removeBook={this.props.removeBook}/>
         })}
         </ul>
       </div>

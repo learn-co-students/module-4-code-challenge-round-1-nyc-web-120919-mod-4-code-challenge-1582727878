@@ -6,7 +6,7 @@ const Bookshelf = props => {
     <div>
       <h1>Book Shelf</h1>
       <ul>{props.books.map(book => {
-          return <Book key={book.id} book={book} clickHandler={props.removeFromShelf}/>
+          return <Book key={book.id} book={book} clickHandler={props.removeFromShelf} isShelf={true}/>
         })}</ul>
     </div>
   );
