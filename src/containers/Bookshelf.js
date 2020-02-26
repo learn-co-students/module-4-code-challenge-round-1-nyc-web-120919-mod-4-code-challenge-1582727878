@@ -1,11 +1,13 @@
 import React from "react";
 import Book from "../components/Book";
 
-const Bookshelf = props => {
+const Bookshelf = (props) => {
   return (
-    <div>
-      <h1>Book Shelf</h1>
-      <ul>{/*render list of books here*/}</ul>
+    <div onClick={() => props.clickHandler(props)}>
+      <h1> BookShelf</h1>
+      <ul>
+        {props.title}
+        </ul>
     </div>
   );
 };
