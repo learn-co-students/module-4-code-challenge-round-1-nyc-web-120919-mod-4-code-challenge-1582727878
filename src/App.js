@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import logo from "./logo.svg";
+// import Logo from "./logo.svg"; unsure what the problem I'm having here is...
 import "./App.css";
 import BookList from "./containers/BookList";
 import Bookshelf from "./containers/Bookshelf";
@@ -40,7 +40,11 @@ class App extends Component {
         'content-type': 'application/json'
       },
       body: JSON.stringify(newBook)
-    })
+    }).then(this.setState({
+      title: '',
+      img: '',
+      author: ''
+    }))
   }
 
   handleBookListClick = (book) => {
@@ -62,6 +66,7 @@ class App extends Component {
   render() {
     return (
       <div className="book-container">
+        {/* <Logo/> can't get this to show up*/} 
         <BookList handleFormSubmit={this.handleFormSubmit} handleFormChange={this.handleFormChange} handleBookListClick={this.handleBookListClick} books={this.state.bookList} title={this.state.title} author={this.state.author} img={this.state.img}/>
         <Bookshelf handleBookShelfClick={this.handleBookShelfClick} books={this.state.bookShelf}/>
       </div>
