@@ -3,7 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import BookList from "./containers/BookList";
 import Bookshelf from "./containers/Bookshelf";
-import Form from "./components/Form";
+
 
 class App extends Component {
 
@@ -30,8 +30,8 @@ class App extends Component {
       }
       return bookItem
     })
-    this.setState(() => {
-      return {books: [...this.state.books, newBooks]}
+    this.setState((prevState) => {
+      return {books: [...prevState.books, newBooks]}
     })
   }
 
@@ -48,10 +48,8 @@ class App extends Component {
     .then((newBook) => {
       this.setState((prevState) => {
       return {books: [...prevState.books, newBook]}
+      })
     })
-    })
-
-    
   }
 
   render() {
@@ -60,6 +58,7 @@ class App extends Component {
         <div className="book-container">
           <BookList handleBook={this.handleBook} books={this.state.books} newBook={this.newBook} />
           <Bookshelf handleBook={this.handleBook} shelfBooks={booksForShelf} />
+          <img src={logo} alt="logo"></img>
         </div>
     );
   }

@@ -20,17 +20,18 @@ class Form extends React.Component {
   }
 
   render() {
+    const {title, author, img} = this.state
     return <div>
       <h2>Add a new book:</h2>
       <form onSubmit={this.handleSubmit}>
         <label>Title:</label>
-        <input type="text" value={this.state.title} onChange={this.handleChange} name="title"></input>
+        <input type="text" value={title} onChange={this.handleChange} name="title"></input>
         <br></br>
         <label>Author:</label>
-        <input type= "text" value={this.state.author} onChange={this.handleChange} name="author"></input>
+        <input type= "text" value={author} onChange={this.handleChange} name="author"></input>
         <br></br>
         <label>Image URL:</label>
-        <input type= "text" value={this.state.img} onChange={this.handleChange} name="img"></input>
+        <input type= "text" value={img} onChange={this.handleChange} name="img"></input>
         <br></br>
         <input type="submit" value="Submit"></input>
       </form>

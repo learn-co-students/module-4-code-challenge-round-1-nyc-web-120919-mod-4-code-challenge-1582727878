@@ -6,9 +6,8 @@ const Bookshelf = props => {
   return (
     <div>
       <h1>Book Shelf</h1>
-      <ul>{props.shelfBooks.map(book => {
-        return <Book key={book.id} book={book} handleBook={props.handleBook} />
-      })}</ul>
+      <ul>{props.shelfBooks.map(book => <Book key={book.id} book={book} handleBook={props.handleBook} />
+      )}</ul>
     </div>
   );
 };
