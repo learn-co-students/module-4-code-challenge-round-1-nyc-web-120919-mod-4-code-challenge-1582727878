@@ -59,24 +59,6 @@
       "author": " Ryan Holiday",
       "img": "https://images-na.ssl-images-amazon.com/images/I/41d%2Baa6UYCL._SX352_BO1,204,203,200_.jpg",
       "id": 10
-    },
-    {
-      "title": "test",
-      "author": "Test",
-      "img": "test",
-      "id": 11
-    },
-    {
-      "title": "test",
-      "author": "Test",
-      "img": "ANOTHER TEST",
-      "id": 12
-    },
-    {
-      "title": "test for id",
-      "author": "Test",
-      "img": "test",
-      "id": 13
     }
   ]
 }
