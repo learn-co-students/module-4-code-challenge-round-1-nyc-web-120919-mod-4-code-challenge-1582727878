@@ -47,6 +47,42 @@
       "title": "We Should All Be Feminists",
       "author": "Chimamanda Ngozi Adichie",
       "img": "https://images-na.ssl-images-amazon.com/images/I/51L9u20bC7L._SX348_BO1,204,203,200_.jpg"
+    },
+    {
+      "title": "How to Win Friends and Influence People",
+      "author": "Dale Carnegie",
+      "img": "https://images.gr-assets.com/books/1442726934l/4865.jpg",
+      "id": 9
+    },
+    {
+      "title": "The Obstacle is the Way",
+      "author": "Ryan Holiday",
+      "img": "https://images-na.ssl-images-amazon.com/images/I/41d%2Baa6UYCL._SX352_BO1,204,203,200_.jpg",
+      "id": 10
+    },
+    {
+      "title": "ffff",
+      "author": "gggg",
+      "img": "fffff",
+      "id": 11
+    },
+    {
+      "title": "ddd",
+      "author": "dddd",
+      "img": "ddd",
+      "id": 12
+    },
+    {
+      "title": "eee",
+      "author": "eee",
+      "img": "eeee",
+      "id": 13
+    },
+    {
+      "title": "study smart",
+      "author": "Dale Carnegie",
+      "img": "https://www.bookbaby.com/images/book-cover-design-basic.png",
+      "id": 14
     }
   ]
 }
